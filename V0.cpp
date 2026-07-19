@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int n;
+int n=-1;
 string* name;
 int* rollno;
 int* studentClass;
@@ -8,11 +8,12 @@ char* section;
 double* age;
 double* marks;
 void Input(){
-    cout<<"Enter the size of the array: ";
-    cin>>n;
-    if(n<=0){
-        cout<<"Invalid Input";
-        return;
+    while(n<=0){
+        cout<<"Enter the size of the array: ";
+        cin>>n;
+        if(n<=0){
+            cout<<"Invalid Input";
+        }
     }
     name = new string[n];
     rollno = new int[n];
@@ -61,7 +62,7 @@ void DisplayAll(){
         cout<<section[i]<<"\t";
         cout<<rollno[i]<<"\t";
         cout<<age[i]<<"\t";
-        cout<<marks[i]<<"\t";
+        cout<<marks[i]<<"\n";
         }
     }
 void SearchDisplay(){
@@ -73,9 +74,6 @@ void SearchDisplay(){
             flg=1;
             break;
         }
-        else{
-            cout<<"Student not found";
-        }
     }
     if(flg==1){
         cout<<"Student found: \n";
@@ -86,6 +84,9 @@ void SearchDisplay(){
         cout<<"Age: "<<age[i]<<"\n";
         cout<<"Marks: "<<marks[i]<<"\n";
 
+    }
+    else{
+        cout<<"Student not found";
     }
 }
 void DeleteArray(){
