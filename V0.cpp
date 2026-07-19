@@ -10,6 +10,10 @@ double* marks;
 void Input(){
     cout<<"Enter the size of the array: ";
     cin>>n;
+    if(n<=0){
+        cout<<"Invalid Input";
+        return;
+    }
     name = new string[n];
     rollno = new int[n];
     studentClass = new int[n];
@@ -35,7 +39,7 @@ void ArrayInput(){
         cout<< endl;
     }
 }
-int choice(){
+int Menu(){
     int ch;
     cout<<"Enter 1 for displaying all the students"<<endl;
     cout<<"Enter 2 for searching a student"<<endl;
@@ -50,15 +54,14 @@ void DisplayAll(){
     cout<<"Roll no \t";
     cout<<"Age \t";
     cout<<"Marks \t"<<"\n";
-    cout<<"======================= \n";
+    cout<<"----------------------- \n";
     for(int i=0;i<n;i++){
-        cout<<name[i]<<"\t";
+        cout<<name[i]<<"\t ";
         cout<<studentClass[i]<<"\t";
         cout<<section[i]<<"\t";
         cout<<rollno[i]<<"\t";
         cout<<age[i]<<"\t";
         cout<<marks[i]<<"\t";
-        cout<<"======================= \n";
         }
     }
 void SearchDisplay(){
@@ -70,11 +73,14 @@ void SearchDisplay(){
             flg=1;
             break;
         }
+        else{
+            cout<<"Student not found";
+        }
     }
     if(flg==1){
         cout<<"Student found: \n";
         cout<<"Name: "<<name[i]<<"\n";
-        cout<<"Class: "<<studentClass[i];
+        cout<<"Class: "<<studentClass[i]<<"\n";
         cout<<"Section: "<<section[i]<<"\n";
         cout<<"Rollno: "<<rollno[i]<<"\n";
         cout<<"Age: "<<age[i]<<"\n";
