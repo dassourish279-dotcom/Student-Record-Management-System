@@ -1,20 +1,22 @@
 #include <iostream>
 using namespace std;
-int n=-1;
+int n=-1; //For the size loop
+//Pointers
 string* name;
 int* rollno;
 int* studentClass;
 char* section;
 double* age;
 double* marks;
-void Input(){
-    while(n<=0){
+void Input(){ //Array Size Input
+    while(n<=0){ //Input loop
         cout<<"Enter the size of the array: ";
         cin>>n;
         if(n<=0){
             cout<<"Invalid Input";
         }
     }
+    //Array size allocation
     name = new string[n];
     rollno = new int[n];
     studentClass = new int[n];
@@ -22,8 +24,8 @@ void Input(){
     age = new double[n];
     marks = new double[n];
 }
-void ArrayInput(){
-    for(int i=0;i<n;i++){
+void ArrayInput(){ //Elements input
+    for(int i=0;i<n;i++){ //Input loop
 
         cout<<"Enter the name:";
         cin>>name[i];
