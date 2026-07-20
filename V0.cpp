@@ -46,21 +46,21 @@ int Menu(){
     cout<<"Enter 2 for searching a student"<<endl;
     cout<<"Enter: ";
     cin>>ch;
-    return ch;
+    return ch;  
 }
 void DisplayAll(){
-    cout<<"Names \t";
-    cout<<"Class \t";
-    cout<<"Section \t";
-    cout<<"Roll no \t";
-    cout<<"Age \t";
-    cout<<"Marks \t"<<"\n";
-    cout<<"----------------------- \n";
+    cout<<"Names\t";
+    cout<<"Class\t";
+    cout<<"Section\t  ";
+    cout<<"Roll no  ";
+    cout<<"Age\t";
+    cout<<"Marks\n";
+    cout<<"----------------------------------------------\n";
     for(int i=0;i<n;i++){
         cout<<name[i]<<"\t ";
         cout<<studentClass[i]<<"\t";
-        cout<<section[i]<<"\t";
-        cout<<rollno[i]<<"\t";
+        cout<<section[i]<<"\t  ";
+        cout<<rollno[i]<<"\t   ";
         cout<<age[i]<<"\t";
         cout<<marks[i]<<"\n";
         }
@@ -96,4 +96,48 @@ void DeleteArray(){
     delete[]section;
     delete[]age;
     delete[]marks;
+}
+int main(){
+    Input();
+    ArrayInput();
+    while(true){
+        int ch = Menu();
+        if(ch==1){
+            DisplayAll();
+        }
+        else if(ch==2){
+            SearchDisplay();
+        }
+        else{
+            cout<<"Wrong choice";
+            Menu();
+            ch = Menu();
+        }
+        char t;
+        cout<<"Want to continue? (y/n)";
+        cin>>t;
+        if(t=='y'||t=='Y'){
+            continue;
+        }
+        else if(t=='n'||t=='N'){
+            DeleteArray();
+            exit(0);
+        }
+        else{
+            cout<<"Wrong Choice \n";
+            cout<<"Want to continue? (y/n)";
+            cin>>t;
+            if(t=='y'||t=='Y'){
+                continue;
+            }
+            else if(t=='n'||t=='N'){
+                DeleteArray();
+                false;
+            }
+            else{
+                break;
+            }
+        }
+    }
+    return 0;
 }
