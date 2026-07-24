@@ -27,7 +27,7 @@ void Input(){ //Array Size Input
 void ArrayInput(){ //Elements input
     for(int i=0;i<n;i++){ //Input loop
 
-        cout<<"Enter the name:";
+        cout<<"Enter the name: ";
         cin>>name[i];
         cout<<"Enter roll no: ";
         cin>>rollno[i];
@@ -103,43 +103,21 @@ int main(){
     Input();
     ArrayInput();
     while(true){
+
         int ch = Menu();
         if(ch==1){
             DisplayAll();
+            break;
         }
         else if(ch==2){
             SearchDisplay();
-        }
-        else{
-            cout<<"Wrong choice";
-            Menu();
-            ch = Menu();
-        }
-        char t;
-        cout<<"Want to continue? (y/n)";
-        cin>>t;
-        if(t=='y'||t=='Y'){
-            continue;
-        }
-        else if(t=='n'||t=='N'){
-            DeleteArray();
-            exit(0);
+            break;
         }
         else{
             cout<<"Wrong Choice \n";
-            cout<<"Want to continue? (y/n)";
-            cin>>t;
-            if(t=='y'||t=='Y'){
-                continue;
-            }
-            else if(t=='n'||t=='N'){
-                DeleteArray();
-                false;
-            }
-            else{
-                break;
-            }
+            continue;
         }
     }
+    DeleteArray();
     return 0;
 }
